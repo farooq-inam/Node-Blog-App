@@ -1,0 +1,17 @@
+<%- include('partials/header'); -%>
+
+    <h1>Hello</h1>
+    <p>
+        <%= thePara %>
+    </p>
+    <% thePost.forEach(function (post){ %>
+        <% const words=post.theBody.split(' '); %>
+        <% const truncatedBody = words.slice(0, 40).join(' ') + ' ...'; %>
+            <h1>
+                <%= post.theTitle %>
+            </h1>
+            <p>
+                <%= truncatedBody %><a href="/posts/<%= encodeURIComponent(post.theTitle) %>">Read more</a>
+            </p>
+            <% }) %>
+                <%- include('partials/footer'); -%>
